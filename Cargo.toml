@@ -1,0 +1,21 @@
+[package]
+name = "trait-variant-sample"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+thiserror = "2.0"
+anyhow = "1.0"
+trait-variant = "0.1"
+tokio = { version = "1.40", default-features = false, features = ["rt-multi-thread", "macros", "signal"]}
+tokio-stream = "0.1"
+deadpool = { version = "0.10", features = ["rt_tokio_1"] }
+deadpool-redis = { version = "0.15", features = ["rt_tokio_1"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+strum = { version = "0.26", features = ["derive"] }
+derive_more = { version = "1.0", default-features = false, features = ["from", "deref", "display"] }
+trait-set = "0.3"
+
+[dev-dependencies]
+redis-test = { version = "0.4", features = ["aio"] } # This version need to use same redis version depended deadpool-redis
